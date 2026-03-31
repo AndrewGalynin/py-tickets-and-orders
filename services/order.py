@@ -13,7 +13,10 @@ def create_order(
         date: str = None
 ) -> Order:
     user = User.objects.get(username=username)
-    order = Order.objects.create(user=user)
+    order = Order.objects.create(
+        user=user,
+        created_at=date
+    )
 
     if date is not None:
         order.created_at = date
